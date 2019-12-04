@@ -1,7 +1,7 @@
 import { NodeVM } from "vm2";
 
 export async function evalJS(
-  { code, name, tests }: { code: string; name: string; tests: string },
+  { code, tests }: { code: string; tests: string },
   timeout = 10000
 ) {
   const vm = new NodeVM({
