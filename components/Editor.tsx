@@ -32,19 +32,20 @@ const textEditor = (props: any) => (
     placeholder="Placeholder Text"
     mode="javascript"
     theme="dracula"
-    name="editor"
-    //   onLoad={this.onLoad}
+    name={props.id}
+    height={props.height}
+    width={props.width}
     onChange={(text: string) => props.update(text)}
     fontSize={14}
     showPrintMargin={true}
-    showGutter={true}
+    showGutter={props.gutter}
     highlightActiveLine={true}
     value={props.text}
     setOptions={{
       enableBasicAutocompletion: true,
-      enableLiveAutocompletion: true,
+      enableLiveAutocompletion: false,
       enableSnippets: true,
-      showLineNumbers: true,
+      showLineNumbers: props.lineNums,
       tabSize: 2,
       wrap: true,
       useWorker: false

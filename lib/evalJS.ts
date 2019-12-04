@@ -15,16 +15,12 @@ export async function evalJS(
 
   let result = await vm.run(
     //@ts-ignore
-    `const chai = require('chai'); 
+    `const {expect} = require('chai'); 
         ${code} 
       
         try{
-            const tests = ${JSON.stringify(tests)};
-
-            tests.forEach((test) => {
-                  chai.expect(${name}(test.input)).to.eql(test.output);
-                }); 
-
+            ${tests}
+            
             module.exports = {passed: true}
         } catch(error){
             module.exports = error
