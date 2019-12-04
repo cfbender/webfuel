@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import dynamic from "next/dynamic";
 const Editor = dynamic({
   loader: () => import("../components/Editor"),
+  /* eslint-disable react/display-name */
   loading: () => <p>Loading ...</p>,
   ssr: false
 });
