@@ -38,8 +38,8 @@ const Challenge = () => {
         <h2>Flatten Array</h2>
 
         <p>
-          Create a function that flattens an array. eg.
-          [1,2,[3,4,[5,6],7,8],9,10] => [1,2,3,4,5,6,7,8,9,10]
+          {`Create a function that flattens an array. eg.
+          [1,2,[3,4,[5,6],7,8],9,10] => [1,2,3,4,5,6,7,8,9,10]`}
         </p>
 
         <p>{testResults || ""}</p>
