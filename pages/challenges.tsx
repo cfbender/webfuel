@@ -1,13 +1,24 @@
 import React from "react";
 import Layout from "../components/Layout";
-
+import Link from "next/link";
+import challengeList from "../public/assets/challenges.json";
 import { useFetchUser } from "../lib/user";
 
 const Index = () => {
   const { user, loading } = useFetchUser();
   return (
     <Layout user={user} loading={loading}>
-      <div>Welcome to Webfuel! Click Challenges to get started</div>
+      {/*
+        //@ts-ignore */}
+      {challengeList.map((challenge: any, idx: number) => (
+        <Link
+          key={idx}
+          href="challenge/[name]"
+          as={`/challenge/${challenge.name}`}
+        >
+          {challenge.name.toUpperCase()}
+        </Link>
+      ))}
       <style jsx global>{`
         html,
         body,

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+
 const Editor = dynamic({
   loader: () => import("../components/Editor"),
   /* eslint-disable react/display-name */
@@ -7,21 +8,46 @@ const Editor = dynamic({
   ssr: false
 });
 
-const Challenge = () => {
-  const [text, setText] = useState(`function flatten(arr) {
-    //code here
-}`);
+type Props = {
+  defaultCode: string;
+  defaultTests: string;
+  description: string;
+  name: string;
+  user: any;
+  title: string;
+};
 
-  const [tests, updateTests] = useState(
-    `expect(flatten([1, 2, [3, 4, [5, 6], 7, 8], 9, 10])).to.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);`
-  );
+const Challenge: React.FunctionComponent<Props> = ({
+  user,
+  defaultCode,
+  defaultTests,
+  description,
+  name,
+  title
+}) => {
+  const [text, setText] = useState(defaultCode);
+  const [tests, updateTests] = useState(defaultTests);
 
   const [submitted, updateSubmitted] = useState(false);
   const [passText, setPassText] = useState("");
   const [errorText, setErrorText] = useState("");
   const [logs, setLogs]: any[] = useState([]);
 
+  const updateCode = async () => {
+    const data = {
+      userId: user.sub,
+      challengeName: name,
+      code: text,
+      tests: tests
+    };
+    await fetch("/api/data/code", {
+      method: "PUT",
+      body: JSON.stringify(data)
+    });
+  };
+
   const handleSubmit = async () => {
+    updateCode();
     const data = {
       name: "flatten",
       code: text
@@ -30,6 +56,7 @@ const Challenge = () => {
   };
 
   const handleTest = async () => {
+    updateCode();
     const data = {
       name: "flatten",
       code: text,
@@ -56,14 +83,29 @@ const Challenge = () => {
     setLogs(logs || []);
   };
 
+  const loadData = async () => {
+    const url = `/api/data/code?userId=${user.sub}&challengeName=flatten`;
+    const response = await fetch(url);
+
+    const result = await response.json();
+
+    if (result) {
+      setText(result.code);
+      updateTests(result.tests);
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      loadData();
+    }
+  }, [user]);
+
   return (
     <div className="container">
       <div className="info">
-        <h2>Flatten Array</h2>
-        <p>
-          {`Create a function that flattens an array. eg.
-          [1,2,[3,4,[5,6],7,8],9,10] => [1,2,3,4,5,6,7,8,9,10]`}
-        </p>
+        <h2>{title}</h2>
+        <p>{description}</p>
         <button onClick={handleSubmit}>Submit</button>
         <strong className="pass-text">{submitted && passText}</strong>
         <span className="error-text">{submitted && errorText}</span>
