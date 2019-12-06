@@ -6,6 +6,7 @@ const Editor = dynamic({
   loading: () => <p>Loading ...</p>,
   ssr: false
 });
+
 const Challenge = () => {
   const [text, setText] = useState(`function flatten(arr) {
     //code here
@@ -15,7 +16,10 @@ const Challenge = () => {
     `expect(flatten([1, 2, [3, 4, [5, 6], 7, 8], 9, 10])).to.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);`
   );
 
-  const [testResults, setTestResults] = useState("");
+  const [submitted, updateSubmitted] = useState(false);
+  const [passText, setPassText] = useState("");
+  const [errorText, setErrorText] = useState("");
+  const [logs, setLogs]: any[] = useState([]);
 
   const handleSubmit = async () => {
     const data = {
@@ -42,22 +46,35 @@ const Challenge = () => {
       method: "POST",
       body: JSON.stringify(data)
     });
-    let result: any = await response.json();
-    const resultText = result.passed ? "All tests passed!" : "Tests failed";
-    setTestResults(resultText);
+    let { result, logs }: { result: any; logs: any[] } = await response.json();
+    updateSubmitted(true);
+    let text = result.passed
+      ? "All tests passed! 😎"
+      : "At least some tests failed!";
+    setPassText(text);
+    setErrorText(!result.passed ? result : "");
+    setLogs(logs || []);
   };
 
   return (
     <div className="container">
       <div className="info">
         <h2>Flatten Array</h2>
-
         <p>
           {`Create a function that flattens an array. eg.
           [1,2,[3,4,[5,6],7,8],9,10] => [1,2,3,4,5,6,7,8,9,10]`}
         </p>
         <button onClick={handleSubmit}>Submit</button>
-        <p>{testResults || ""}</p>
+        <strong className="pass-text">{submitted && passText}</strong>
+        <span className="error-text">{submitted && errorText}</span>
+        <strong>{(submitted && Boolean(logs.length) && "Logs:") || ""}</strong>
+        {submitted &&
+          Boolean(logs.length) &&
+          logs.map((log: string) => (
+            <div className="log" key={log}>
+              {log}
+            </div>
+          ))}
       </div>
       <div className="editor">
         <Editor
@@ -103,6 +120,10 @@ const Challenge = () => {
 
         #tests {
           margin: 20px;
+        }
+
+        .error-name {
+          font-weight: bold;
         }
       `}</style>
     </div>

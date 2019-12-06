@@ -5,14 +5,17 @@ export async function evalJS(
   timeout = 10000
 ) {
   const vm = new NodeVM({
-    console: "inherit",
+    console: "redirect",
     sandbox: {},
     require: {
       external: true
     },
     timeout
   });
-
+  let logs: any[] = [];
+  vm.on("console.log", data => {
+    logs.push(data);
+  });
   let result = await vm.run(
     //@ts-ignore
     `const {expect} = require('chai'); 
@@ -27,5 +30,6 @@ export async function evalJS(
             }`,
     "test.ts"
   );
-  return result;
+
+  return { result, logs };
 }

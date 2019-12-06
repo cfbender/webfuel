@@ -13,7 +13,10 @@ export default async function test(req: any, res: any) {
     : tests;
   try {
     let result = await evalJS({ code, tests });
-    res.json(JSON.stringify(result));
+    if (result.result instanceof Error) {
+      result.result = result.result.toString();
+    }
+    res.json(result);
   } catch (error) {
     console.error(error);
     res.json(error);
