@@ -7,7 +7,4 @@ const codeSchema = new mongoose.Schema({
   tests: { type: String }
 });
 
-// global.noteSchema = global.noteSchema ||
-const code = mongoose.model("Code", codeSchema);
-
-export default code;
+export default mongoose.models.Code || mongoose.model("Code", codeSchema);

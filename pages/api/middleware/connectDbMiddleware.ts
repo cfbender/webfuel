@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/webfuel";
-
+console.log(MONGODB_URI);
 const connectDb = (handler: any) => async (req: any, res: any) => {
   if (mongoose.connections[0].readyState !== 1) {
     // Using new database connection

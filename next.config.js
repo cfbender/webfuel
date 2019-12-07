@@ -13,6 +13,7 @@ module.exports = {
     POST_LOGOUT_REDIRECT_URI:
       process.env.POST_LOGOUT_REDIRECT_URI || "http://localhost:3000/",
     SESSION_COOKIE_SECRET: process.env.SESSION_COOKIE_SECRET,
-    SESSION_COOKIE_LIFETIME: 7200 // 2 hours
+    SESSION_COOKIE_LIFETIME: 7200, // 2 hours
+    MONGODB_URI: process.env.MONGODB_URI || "mongodb://localhost/webfuel"
   }
 };

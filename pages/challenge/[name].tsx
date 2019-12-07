@@ -8,9 +8,10 @@ import challengeList from "../../public/assets/challenges.json";
 const challenges = () => {
   const router = useRouter();
   const { name } = router.query;
-  console.log(name);
   const challengeData = challengeList.filter(item => item.name === name)[0];
-
+  if (!challengeData) {
+    return <div>Challenge not found.</div>;
+  }
   const { user, loading } = useFetchUser();
   return (
     <Layout user={user} loading={loading}>

@@ -1,8 +1,8 @@
 import connectDb from "../middleware/connectDbMiddleware";
-import mongoose from "mongoose";
-// import { Code } from "../../../models";
+// import mongoose from "mongoose";
+import { Code } from "../../../models";
 
-const Code = mongoose.model("Code");
+// const Code = mongoose.model("Code");
 
 const handler = async (req: any, res: any) => {
   const { method } = req;
