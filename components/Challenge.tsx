@@ -54,7 +54,7 @@ const Challenge: React.FunctionComponent<Props> = ({
       name: "flatten",
       code: text
     };
-    await call("/api/test?submit=true", data);
+    await call("http://localhost:3001/?submit=true", data);
   };
 
   const handleTest = async () => {
@@ -64,7 +64,7 @@ const Challenge: React.FunctionComponent<Props> = ({
       code: text,
       tests: tests
     };
-    await call("/api/test", data);
+    await call("http://localhost:3001/", data);
   };
 
   const call = async (
