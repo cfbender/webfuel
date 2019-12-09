@@ -17,10 +17,11 @@ const challenges = () => {
     <Layout user={user} loading={loading}>
       <Challenge
         defaultCode={challengeData.code}
-        defaultTests={challengeData.tests}
+        defaultTests={challengeData.initialTests}
         description={challengeData.description}
         name={challengeData.name}
         title={challengeData.title}
+        finalTests={challengeData.finalTests}
         user={user}
       />
       <style jsx global>{`

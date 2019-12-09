@@ -15,12 +15,14 @@ type Props = {
   name: string;
   user: any;
   title: string;
+  finalTests: string;
 };
 
 const Challenge: React.FunctionComponent<Props> = ({
   user,
   defaultCode,
   defaultTests,
+  finalTests,
   description,
   name,
   title
@@ -52,9 +54,13 @@ const Challenge: React.FunctionComponent<Props> = ({
     updateCode();
     const data = {
       name: "flatten",
-      code: text
+      code: text,
+      tests: finalTests
     };
-    await call("https://evaljs.cfbender.now.sh/api/test?submit=true", data);
+    await call(
+      "https://cuxuwv59w5.execute-api.us-east-1.amazonaws.com/dev/test?submit=true",
+      data
+    );
   };
 
   const handleTest = async () => {
@@ -64,7 +70,10 @@ const Challenge: React.FunctionComponent<Props> = ({
       code: text,
       tests: tests
     };
-    await call("https://evaljs.cfbender.now.sh/api/test", data);
+    await call(
+      "https://cuxuwv59w5.execute-api.us-east-1.amazonaws.com/dev/test",
+      data
+    );
   };
 
   const call = async (
