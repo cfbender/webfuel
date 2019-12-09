@@ -7,9 +7,6 @@
     "start": "serve ./out",
     "type-check": "tsc"
   },
-  "engines": {
-    "node": "12.x"
-  },
   "dependencies": {
     "@auth0/nextjs-auth0": "^0.5.0",
     "@crello/react-lottie": "^0.0.5",
