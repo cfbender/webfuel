@@ -1,4 +1,4 @@
-import { evalJS } from "../../lib/evalJS";
+import evalJS from "../../lib/evalJS";
 
 export default async function test(req: any, res: any) {
   let { code, tests } = JSON.parse(req.body);

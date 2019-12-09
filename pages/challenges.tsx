@@ -16,7 +16,7 @@ const Index = () => {
           href="challenge/[name]"
           as={`/challenge/${challenge.name}`}
         >
-          {challenge.name.toUpperCase()}
+          <a>{challenge.name.toUpperCase()}</a>
         </Link>
       ))}
       <style jsx global>{`

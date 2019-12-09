@@ -34,16 +34,18 @@ const Challenge: React.FunctionComponent<Props> = ({
   const [logs, setLogs]: any[] = useState([]);
 
   const updateCode = async () => {
-    const data = {
-      userId: user.sub,
-      challengeName: name,
-      code: text,
-      tests: tests
-    };
-    await fetch("/api/data/code", {
-      method: "PUT",
-      body: JSON.stringify(data)
-    });
+    if (user) {
+      const data = {
+        userId: user.sub,
+        challengeName: name,
+        code: text,
+        tests: tests
+      };
+      await fetch("/api/data/code", {
+        method: "PUT",
+        body: JSON.stringify(data)
+      });
+    }
   };
 
   const handleSubmit = async () => {

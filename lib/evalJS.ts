@@ -1,6 +1,6 @@
-import { NodeVM } from "vm2";
+const { NodeVM } = require("vm2");
 
-export async function evalJS(
+export default async function evalJS(
   { code, tests }: { code: string; tests: string },
   timeout = 10000
 ) {
@@ -8,14 +8,20 @@ export async function evalJS(
     console: "redirect",
     sandbox: {},
     require: {
-      external: true
+      context: "sandbox",
+      builtin: ["*"],
+      external: true,
+      import: ["chai"]
     },
     timeout
   });
+
   let logs: any[] = [];
-  vm.on("console.log", data => {
+
+  vm.on("console.log", (data: any) => {
     logs.push(data);
   });
+
   let result = await vm.run(
     //@ts-ignore
     `const {expect} = require('chai'); 
