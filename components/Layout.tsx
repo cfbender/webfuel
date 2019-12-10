@@ -80,6 +80,7 @@ const Layout: React.FunctionComponent<Props> = ({
             display: flex;
             height: 100%;
             flex-direction: column;
+            background-color: #19262f;
           }
           .content {
             flex: 1 0 auto;
