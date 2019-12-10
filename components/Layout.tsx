@@ -74,13 +74,7 @@ const Layout: React.FunctionComponent<Props> = ({
 
       <style jsx>
         {`
-          html,
-          body,
-          #__next {
-            margin: 0 auto;
-            height: 100%;
-          }
-
+          
           #layout {
             margin: 0 auto;
             display: flex;
@@ -118,9 +112,17 @@ const Layout: React.FunctionComponent<Props> = ({
         `}
       </style>
       <style jsx global>{`
+
         @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
         body {
           font-family: "Montserrat", sans-serif;
+        }
+
+        html,
+        body,
+        #__next {
+          margin: 0 auto;
+          height: 100%;
         }
       `}</style>
     </div>
