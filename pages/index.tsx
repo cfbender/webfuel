@@ -48,6 +48,7 @@ const Index = () => {
         }
         .container {
           display: flex;
+          align-items: center;
           padding: 150px;
           background-color: #19262f;
           color: #eee;
