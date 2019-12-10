@@ -61,6 +61,7 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
           @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
           nav {
+            padding: 0 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -69,8 +70,8 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
             color: #e4bd54;
           }
           .header {
+            width: 100%;
             background-color: #19262f;
-            padding: 25px;
             margin: 0 auto;
           }
           .routes {
