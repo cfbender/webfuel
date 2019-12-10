@@ -35,13 +35,7 @@ const Index = () => {
           />
         </div>
       </div>
-      <style jsx global>{`
-        html,
-        body,
-        #__next {
-          margin: 0 auto;
-          height: 100%;
-        }
+      <style jsx>{`
         .logo {
           background-color: #19262f;
           border-radius: 25px;
@@ -49,6 +43,8 @@ const Index = () => {
         .container {
           display: flex;
           align-items: center;
+          justify-content: flex-start;
+          height: 100%;
           padding: 150px;
           background-color: #19262f;
           color: #eee;
