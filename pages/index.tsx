@@ -45,7 +45,6 @@ const Index = () => {
           align-items: center;
           justify-content: flex-start;
           height: 100%;
-          padding: 150px;
           background-color: #19262f;
           color: #eee;
         }
