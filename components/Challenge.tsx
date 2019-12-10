@@ -154,7 +154,7 @@ const Challenge: React.FunctionComponent<Props> = ({
           gutter={true}
           lineNums={true}
           text={text}
-          height={"500px"}
+          height={"60%"}
           width={"600px"}
           update={setText}
         />
@@ -175,7 +175,7 @@ const Challenge: React.FunctionComponent<Props> = ({
           gutter={false}
           lineNums={false}
           text={tests}
-          height={"200px"}
+          height={"20%"}
           width={"600px"}
           update={updateTests}
         />
@@ -200,11 +200,11 @@ const Challenge: React.FunctionComponent<Props> = ({
           justify-content: flex-start;
           background-color: #fff;
           height: 100%;
-          margin: 30px;
         }
         .info {
           display: flex;
           flex-direction: column;
+          margin-right: 10rem;
         }
 
         .description {
@@ -216,6 +216,7 @@ const Challenge: React.FunctionComponent<Props> = ({
         .editor {
           display: flex;
           flex-direction: column;
+          margin: 1rem;
         }
         .results {
           display: flex;
@@ -253,6 +254,7 @@ const Challenge: React.FunctionComponent<Props> = ({
         .buttons {
           display: flex;
           justify-content: space-between;
+          margin-top: 1rem;
           padding: 0px 20px 0px 20px;
         }
         button {
