@@ -110,6 +110,12 @@ const Layout: React.FunctionComponent<Props> = ({
           }
         `}
       </style>
+      <style jsx global>{`
+        @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+        body {
+          font-family: "Montserrat", sans-serif;
+        }
+      `}</style>
     </div>
   );
 };

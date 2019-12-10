@@ -11,7 +11,7 @@ const Index = () => {
       <div className="container">
         <div className="primer">
           <h3>
-            Welcome to Webfuel! The free and open-source online holistic web
+            Welcome to WebFuel! The free and open-source online holistic web
             development learning platform.
           </h3>
 
@@ -49,6 +49,8 @@ const Index = () => {
         .container {
           display: flex;
           padding: 150px;
+          background-color: #19262f;
+          color: #eee;
         }
         .primer {
           padding: 50px;
