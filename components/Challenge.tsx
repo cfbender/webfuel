@@ -204,7 +204,7 @@ const Challenge: React.FunctionComponent<Props> = ({
         .info {
           display: flex;
           flex-direction: column;
-          margin-right: 10rem;
+          margin: 2rem;
         }
 
         .description {
