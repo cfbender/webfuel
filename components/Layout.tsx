@@ -42,9 +42,8 @@ const Layout: React.FunctionComponent<Props> = ({
         />
         <link rel="manifest" href="/assets/site.webmanifest" />
       </Head>
-
+      <Header user={user} loading={loading} />
       <div className="content">
-        <Header user={user} loading={loading} />
         {children}
       </div>
       <footer>
@@ -90,6 +89,7 @@ const Layout: React.FunctionComponent<Props> = ({
           }
           .content {
             flex: 1 0 auto;
+            height: 100%;
           }
           .cls-1 {
             fill: #e4bd54;
