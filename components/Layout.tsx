@@ -83,7 +83,6 @@ const Layout: React.FunctionComponent<Props> = ({
           }
           .content {
             flex: 1 0 auto;
-            height: 100%;
           }
           .cls-1 {
             fill: #e4bd54;
