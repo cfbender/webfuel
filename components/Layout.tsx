@@ -75,6 +75,13 @@ const Layout: React.FunctionComponent<Props> = ({
 
       <style jsx>
         {`
+          html,
+          body,
+          #__next {
+            margin: 0 auto;
+            height: 100%;
+          }
+
           #layout {
             margin: 0 auto;
             display: flex;
@@ -83,7 +90,6 @@ const Layout: React.FunctionComponent<Props> = ({
           }
           .content {
             flex: 1 0 auto;
-            background-color: #19262f;
           }
           .cls-1 {
             fill: #e4bd54;
