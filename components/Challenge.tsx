@@ -188,7 +188,7 @@ const Challenge: React.FunctionComponent<Props> = ({
           </button>
         </div>
       </div>
-      <style jsx global>{`
+      <style jsx>{`
         p {
           padding: 50px;
         }
@@ -197,6 +197,9 @@ const Challenge: React.FunctionComponent<Props> = ({
         }
         .container {
           display: flex;
+          justify-content: flex-start;
+          background-color: #fff;
+          height: 100%;
           margin: 30px;
         }
         .info {
