@@ -5,7 +5,7 @@ import Header from "./Header";
 type Props = {
   user: any;
   loading: boolean;
-  children?: JSX.Element[];
+  children?: JSX.Element[] | JSX.Element;
 };
 
 const Layout: React.FunctionComponent<Props> = ({
@@ -43,9 +43,7 @@ const Layout: React.FunctionComponent<Props> = ({
         <link rel="manifest" href="/assets/site.webmanifest" />
       </Head>
       <Header user={user} loading={loading} />
-      <div className="content">
-        {children}
-      </div>
+      <div className="content">{children}</div>
       <footer>
         <svg
           id="Artwork"
@@ -74,7 +72,6 @@ const Layout: React.FunctionComponent<Props> = ({
 
       <style jsx>
         {`
-          
           #layout {
             margin: 0 auto;
             display: flex;
@@ -111,7 +108,6 @@ const Layout: React.FunctionComponent<Props> = ({
         `}
       </style>
       <style jsx global>{`
-
         @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
         body {
           font-family: "Montserrat", sans-serif;
@@ -122,6 +118,22 @@ const Layout: React.FunctionComponent<Props> = ({
         #__next {
           margin: 0 auto;
           height: 100%;
+        }
+
+        .container :global(code) {
+          background-color: #19262f;
+          color: #5abdae;
+          border-radius: 5px;
+          padding: 5px;
+          white-space: pre-wrap;
+        }
+
+        .container :global(blockquote) {
+          background-color: #19262f;
+          color: #e4bd54;
+          border-radius: 5px;
+          padding: 10px;
+          white-space: pre-wrap;
         }
       `}</style>
     </div>
