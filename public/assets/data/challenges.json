@@ -2,7 +2,7 @@
   {
     "name": "flatten",
     "title": "Flatten Array",
-    "description": "Create a function that flattens an array. eg. <code>[1,2,[3,4,[5,6],7,8],9,10] => [1,2,3,4,5,6,7,8,9,10]</code>\n\nThis method was implemented with ES2019 as <code>Array.prototype.flat()</code>, but it is still a nice challenge to implement on your own.\n\t<blockquote>To iterate is human, to recurse divine.</blockquote> ",
+    "description": "Create a function that flattens an array. eg. `[1,2,[3,4,[5,6],7,8],9,10] => [1,2,3,4,5,6,7,8,9,10]`\n\nThis method was implemented with ES2019 as `Array.prototype.flat()`, but it is still a nice challenge to implement on your own.\n> > To iterate is human, to recurse divine. ",
     "code": "function flatten(arr) {\n//code here\n }",
     "initialTests": "expect(flatten([1, 2, [3, 4, [5, 6], 7, 8], 9, 10])).to.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);",
     "finalTests": "expect(flatten([1, 2, [3, 4, [5, 6], 7, 8], 9, 10])).to.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);\nexpect(flatten([])).to.eql([]);\nexpect(flatten([1])).to.eql([1]);\nexpect(flatten([[[[[[5]]]]]])).to.eql([5]);"
@@ -10,7 +10,7 @@
   {
     "name": "reverse",
     "title": "Reverse A String",
-    "description": "Create a reverses a string. eg. <code>'This is a reversed string.' => '.gnirts desrever a si sihT'</code>\n\nTry to make your solution as readable as possible!",
+    "description": "Create a reverses a string. eg. `'This is a reversed string.' => '.gnirts desrever a si sihT'`\n\nTry to make your solution as readable as possible!",
     "code": "function reverse(str) {\n//code here\n }",
     "initialTests": "expect(reverse('This is a reversed string.')).to.eql('.gnirts desrever a si sihT');",
     "finalTests": "expect(reverse('This is a reversed string.')).to.eql('.gnirts desrever a si sihT');\nexpect(reverse('')).to.eql('');\nexpect(reverse('AAAAAAA')).to.eql('AAAAAAA');"

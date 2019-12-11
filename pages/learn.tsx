@@ -1,19 +1,19 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Link from "next/link";
-import challengeList from "../public/assets/data/challenges.json";
 import { useFetchUser } from "../lib/user";
+import learnList from "../public/assets/data/learn.json";
 
-const challenges = () => {
+const learn = () => {
   const { user, loading } = useFetchUser();
   return (
     <Layout user={user} loading={loading}>
       <div className="container">
         <div className="primer">
           <p>
-            Welcome to WebFuel challenges! Here you can learn JavaScript on the
-            fly by using our web based text editor and cloud compiler. Pick from
-            the challenges below to get started!
+            Welcome to WebFuel learn! Here you can learn all things web
+            development including tutorials, resources, and other reading
+            material! Click on a blog post below to get learning!
           </p>
 
           {!user && (
@@ -24,33 +24,23 @@ const challenges = () => {
         </div>
         <hr />
 
-        <div className="challenges">
-          <h1>Challenges</h1>
+        <div className="posts">
+          <h1>Posts</h1>
           {/*
         //@ts-ignore */}
-          {challengeList.map((challenge: any, idx: number) => (
-            <Link
-              key={idx}
-              href="challenge/[name]"
-              as={`/challenge/${challenge.name}`}
-            >
-              <a className="challenge-link">{challenge.title.toUpperCase()}</a>
+          {learnList.map((post: any, idx: number) => (
+            <Link key={idx} href="learn/[title]" as={`/learn/${post.urlTitle}`}>
+              <a className="post-link">{post.title.toUpperCase()}</a>
             </Link>
           ))}
         </div>
       </div>
-      <style jsx global>{`
-        html,
-        body,
-        #__next {
-          margin: 0 auto;
-          height: 100%;
+      <style jsx>{`
+        hr {
+          width: 60%;
         }
         p {
           padding: 50px;
-        }
-        hr {
-          width: 60%;
         }
         a {
           margin-bottom: 10px;
@@ -71,12 +61,12 @@ const challenges = () => {
           max-width: 60rem;
           font-size: 1.5rem;
         }
-        .challenges {
+        .posts {
           display: flex;
           flex-direction: column;
           padding: 50px;
         }
-        .challenge-link {
+        .post-link {
           text-decoration: none;
           font-size: 1.2rem;
         }
@@ -85,4 +75,4 @@ const challenges = () => {
   );
 };
 
-export default challenges;
+export default learn;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import ReactMarkdown from "react-markdown";
 
 const Editor = dynamic({
   loader: () => import("../components/Editor"),
@@ -59,7 +60,7 @@ const Challenge: React.FunctionComponent<Props> = ({
       tests: finalTests
     };
     await call(
-      "https://cuxuwv59w5.execute-api.us-east-1.amazonaws.com/dev/test?submit=true",
+      "https://cuxuwv59w5.execute-api.us-east-1.amazonaws.com/dev/test",
       data
     );
   };
@@ -122,10 +123,9 @@ const Challenge: React.FunctionComponent<Props> = ({
     <div className="container">
       <div className="info">
         <h2>{title}</h2>
-        <p
-          className="description"
-          dangerouslySetInnerHTML={{ __html: description }}
-        ></p>
+        <p className="description">
+          <ReactMarkdown source={description} />
+        </p>
         {user ? null : (
           <code style={{ textAlign: "center" }}>
             Log in above using Auth0 to store your code and tests!
@@ -232,25 +232,11 @@ const Challenge: React.FunctionComponent<Props> = ({
         .error-name {
           font-weight: bold;
         }
-        code {
-          background-color: #19262f;
-          color: #5abdae;
-          border-radius: 5px;
-          padding: 5px;
-          white-space: pre-wrap;
-        }
 
         .result-code {
           padding: 20px;
         }
 
-        blockquote {
-          background-color: #19262f;
-          color: #e4bd54;
-          border-radius: 5px;
-          padding: 20px;
-          white-space: pre-wrap;
-        }
         .buttons {
           display: flex;
           justify-content: space-between;
