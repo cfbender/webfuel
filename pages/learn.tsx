@@ -15,12 +15,6 @@ const learn = () => {
             development including tutorials, resources, and other reading
             material! Click on a blog post below to get learning!
           </p>
-
-          {!user && (
-            <code>
-              Tip: Log in above using Auth0 to store your code and tests!
-            </code>
-          )}
         </div>
         <hr />
 
