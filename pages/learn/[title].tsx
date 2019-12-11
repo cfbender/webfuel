@@ -23,7 +23,6 @@ const learn = () => {
         authorLink={learnData.authorLink}
         content={learnData.content}
       />
-      <style jsx>{``}</style>
     </Layout>
   );
 };

@@ -21,9 +21,9 @@ const LearnPost: React.FunctionComponent<Props> = ({
         <h3>
           <a href={authorLink}>{author}</a>
         </h3>
-        <p className="post">
+        <div className="post">
           <ReactMarkdown source={content} renderers={{ code: CodeBlock }} />
-        </p>
+        </div>
       </div>
       <style jsx>{`
         a {
@@ -33,10 +33,6 @@ const LearnPost: React.FunctionComponent<Props> = ({
         h2,
         h3 {
           text-align: center;
-        }
-
-        p {
-          line-height: 2rem;
         }
 
         :global(pre > code) {
@@ -58,6 +54,7 @@ const LearnPost: React.FunctionComponent<Props> = ({
           display: flex;
           flex-direction: column;
           margin: 2rem;
+          line-height: 2rem;
         }
       `}</style>
     </div>
