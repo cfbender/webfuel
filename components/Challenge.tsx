@@ -197,9 +197,9 @@ const Challenge: React.FunctionComponent<Props> = ({
         }
         .container {
           display: flex;
-          justify-content: flex-start;
           background-color: #fff;
           height: 100%;
+          justify-content: center;
         }
         .info {
           display: flex;
@@ -216,6 +216,7 @@ const Challenge: React.FunctionComponent<Props> = ({
         .editor {
           display: flex;
           flex-direction: column;
+          justify-content: center;
           margin: 1rem;
         }
         .results {
