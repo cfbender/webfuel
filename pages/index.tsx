@@ -29,8 +29,6 @@ const Index = () => {
               autoplay: true,
               loop: true
             }}
-            height={"400px"}
-            width={"400px"}
             playingState={"playing"}
           />
         </div>
@@ -39,6 +37,7 @@ const Index = () => {
         .logo {
           background-color: #19262f;
           border-radius: 25px;
+          min-width: 400px;
         }
         .container {
           display: flex;
@@ -61,6 +60,14 @@ const Index = () => {
         .editor {
           display: flex;
           flex-direction: column;
+        }
+        @media only screen and (max-width: 600px) {
+          .container {
+            flex-direction: column;
+          }
+          .logo {
+            min-width: 100px;
+          }
         }
       `}</style>
     </Layout>
