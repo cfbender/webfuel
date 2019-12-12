@@ -140,7 +140,7 @@ const Challenge: React.FunctionComponent<Props> = ({
             <strong>{(Boolean(logs.length) && "Logs:") || ""}</strong>
 
             {Boolean(logs.length) && (
-              <code className="log result-code">logs.join("\n") </code>
+              <code className="log result-code">{logs.join("\n")}</code>
             )}
 
             <strong>Tests run:</strong>
