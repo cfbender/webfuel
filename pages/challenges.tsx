@@ -80,6 +80,13 @@ const challenges = () => {
           text-decoration: none;
           font-size: 1.2rem;
         }
+
+        @media only screen and (max-width: 600px) {
+          code {
+            font-size: 1rem;
+            margin: 1rem;
+          }
+        }
       `}</style>
     </Layout>
   );

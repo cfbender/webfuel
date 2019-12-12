@@ -56,6 +56,12 @@ const LearnPost: React.FunctionComponent<Props> = ({
           margin: 2rem;
           line-height: 2rem;
         }
+
+        @media only screen and (max-width: 600px) {
+          .container {
+            margin: 0;
+          }
+        }
       `}</style>
     </div>
   );

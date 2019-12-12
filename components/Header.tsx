@@ -39,20 +39,20 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
         <div className="routes">
           <Link href="/challenges" passHref>
             <a className="route-link">Challenges</a>
-          </Link>{" "}
-          |
-          <Link href="/learn" passHref>
-            <a className="route-link">Learn</a>
           </Link>
-        </div>
-        <div className="user">
+          <Link href="/learn" passHref>
+            <a className="route-link ">Learn</a>
+          </Link>
+
           {!loading &&
             (user ? (
-              <div className="links">
-                <a href="/api/user/logout">Logout</a>
-              </div>
+              <a href="/api/user/logout" className="user-link route-link">
+                Logout
+              </a>
             ) : (
-              <a href="/api/user/login">Login</a>
+              <a href="/api/user/login" className=" route-link user-link">
+                Login
+              </a>
             ))}
         </div>
       </nav>
@@ -68,6 +68,11 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
           }
           .route-link {
             color: #e4bd54;
+            padding-left: 2rem;
+          }
+          .route-link:not(.user-link) {
+            border-right: 1px solid #c94437;
+            padding-right: 2rem;
           }
           .header {
             width: 100%;
@@ -78,7 +83,6 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
             display: flex;
             min-width: 200px;
             justify-content: space-between;
-            color: #c94437;
           }
           .logo {
             display: flex;
@@ -103,8 +107,30 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
           }
 
           a {
-            color: #5abdae;
             text-decoration: none;
+          }
+          .user-link {
+            color: #5abdae;
+          }
+
+          @media only screen and (max-width: 600px) {
+            .routes {
+              flex-direction: column;
+              margin: 1.5rem 1.5rem 1.5rem 0;
+            }
+
+            .route-link {
+              border-right: none !important;
+              margin: 0.5rem 0 0.5rem 0;
+              padding-right: 0rem;
+            }
+
+            .logo-name {
+              font-size: 22px;
+            }
+            nav {
+              padding: 0 5%;
+            }
           }
         `}
       </style>

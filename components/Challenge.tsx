@@ -37,6 +37,8 @@ const Challenge: React.FunctionComponent<Props> = ({
   const [logs, setLogs]: any[] = useState([]);
   const [testsRun, setTestsRun] = useState("");
 
+  const isMobile = window.innerWidth < 600;
+
   const updateCode = async () => {
     if (user) {
       const data = {
@@ -154,8 +156,8 @@ const Challenge: React.FunctionComponent<Props> = ({
           gutter={true}
           lineNums={true}
           text={text}
-          height={"60%"}
-          width={"600px"}
+          height={"20rem"}
+          width={isMobile ? "20rem" : "36rem"}
           update={setText}
         />
         <hr
@@ -175,8 +177,8 @@ const Challenge: React.FunctionComponent<Props> = ({
           gutter={false}
           lineNums={false}
           text={tests}
-          height={"20%"}
-          width={"600px"}
+          height={"5rem"}
+          width={isMobile ? "20rem" : "36rem"}
           update={updateTests}
         />
         <div className="buttons">
@@ -190,7 +192,7 @@ const Challenge: React.FunctionComponent<Props> = ({
       </div>
       <style jsx>{`
         p {
-          padding: 50px;
+          padding: 2rem;
         }
         h2 {
           text-align: center;
@@ -271,6 +273,23 @@ const Challenge: React.FunctionComponent<Props> = ({
 
         #submitButton {
           background-color: #5abdae;
+        }
+
+        @media only screen and (max-width: 600px) {
+          .container {
+            flex-direction: column;
+          }
+
+          .info {
+            margin: 0;
+          }
+
+          p {
+            padding: 1rem;
+          }
+          .editor {
+            align-items: center;
+          }
         }
       `}</style>
     </div>
