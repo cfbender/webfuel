@@ -156,7 +156,7 @@ const Challenge: React.FunctionComponent<Props> = ({
           gutter={true}
           lineNums={true}
           text={text}
-          height={"20rem"}
+          height={isMobile ? "20rem" : "60%"}
           width={isMobile ? "20rem" : "36rem"}
           update={setText}
         />
@@ -177,7 +177,7 @@ const Challenge: React.FunctionComponent<Props> = ({
           gutter={false}
           lineNums={false}
           text={tests}
-          height={"5rem"}
+          height={isMobile ? "5rem" : "20%"}
           width={isMobile ? "20rem" : "36rem"}
           update={updateTests}
         />
@@ -218,7 +218,6 @@ const Challenge: React.FunctionComponent<Props> = ({
         .editor {
           display: flex;
           flex-direction: column;
-          justify-content: center;
           margin: 1rem;
         }
         .results {
