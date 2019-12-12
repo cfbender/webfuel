@@ -138,12 +138,9 @@ const Challenge: React.FunctionComponent<Props> = ({
             <strong className="pass-text">{passText}</strong>
             <code className="error-text result-code">{errorText}</code>
             <strong>{(Boolean(logs.length) && "Logs:") || ""}</strong>
-            {Boolean(logs.length) &&
-              logs.map((log: string) => (
-                <code className="log result-code" key={log}>
-                  {log}
-                </code>
-              ))}
+            <code className="log result-code">
+              {Boolean(logs.length) && logs.join("\n")}
+            </code>
 
             <strong>Tests run:</strong>
             <code className="result-code">{testsRun}</code>
