@@ -88,6 +88,7 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            cursor: pointer;
           }
 
           .logo-name {
