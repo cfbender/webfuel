@@ -52,9 +52,6 @@ const challenges = () => {
         hr {
           width: 60%;
         }
-        a {
-          margin-bottom: 10px;
-        }
         code {
           font-size: 1.1rem;
         }
@@ -79,6 +76,7 @@ const challenges = () => {
         .challenge-link {
           text-decoration: none;
           font-size: 1.2rem;
+          margin-bottom: 10px;
         }
 
         @media only screen and (max-width: 600px) {

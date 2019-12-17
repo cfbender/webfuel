@@ -8,7 +8,7 @@ const Index = () => {
   const { user, loading } = useFetchUser();
   return (
     <Layout user={user} loading={loading}>
-      <div className="container">
+      <div className="hero-container">
         <div className="primer">
           <h3>
             Welcome to WebFuel! The free and open-source online holistic web
@@ -39,7 +39,7 @@ const Index = () => {
           border-radius: 25px;
           min-width: 400px;
         }
-        .container {
+        .hero-container {
           display: flex;
           align-items: center;
           justify-content: flex-start;

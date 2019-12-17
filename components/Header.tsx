@@ -6,10 +6,9 @@ import coffee from "../public/assets/coffee-outline.json";
 
 type Props = {
   user: any;
-  loading: boolean;
 };
 
-const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
+const Header: React.FunctionComponent<Props> = ({ user }) => {
   const [playing, setPlaying]: ["playing" | "stopped", any] = useState(
     "stopped"
   );
@@ -44,16 +43,15 @@ const Header: React.FunctionComponent<Props> = ({ user, loading }) => {
             <a className="route-link ">Learn</a>
           </Link>
 
-          {!loading &&
-            (user ? (
-              <a href="/api/user/logout" className="user-link route-link">
-                Logout
-              </a>
-            ) : (
-              <a href="/api/user/login" className=" route-link user-link">
-                Login
-              </a>
-            ))}
+          {user ? (
+            <a href="/api/user/logout" className="user-link route-link">
+              Logout
+            </a>
+          ) : (
+            <a href="/api/user/login" className=" route-link user-link">
+              Login
+            </a>
+          )}
         </div>
       </nav>
       <style jsx>
