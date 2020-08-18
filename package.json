@@ -28,7 +28,7 @@
     "react-dom": "^16.10.1",
     "react-markdown": "^4.2.2",
     "react-syntax-highlighter": "^11.0.2",
-    "serialize-javascript": "^2.1.1",
+    "serialize-javascript": "^3.1.0",
     "typescript": "3.6.3",
     "vm2": "^3.8.4"
   },
