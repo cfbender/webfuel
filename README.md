@@ -5,6 +5,8 @@ The free and open-source online holistic web development learning platform.
 
 ## Development
 
+**NOTE**: The npm dependency tree is currently broken, use `npm install --force` to install dependencies.
+
 Clone this repo and run `yarn dev` to run the local development environment
 
 ## Usage
