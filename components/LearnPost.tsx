@@ -12,7 +12,7 @@ const LearnPost: React.FunctionComponent<Props> = ({
   title,
   author,
   authorLink,
-  content
+  content,
 }) => {
   return (
     <div className="container">
@@ -22,7 +22,25 @@ const LearnPost: React.FunctionComponent<Props> = ({
           <a href={authorLink}>{author}</a>
         </h3>
         <div className="post">
-          <ReactMarkdown source={content} renderers={{ code: CodeBlock }} />
+          <ReactMarkdown
+            components={{
+              code({ inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || "");
+                return !inline && match ? (
+                  <CodeBlock
+                    value={String(children).replace(/\n$/, "")}
+                    language={match[1]}
+                  />
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              },
+            }}
+          >
+            {content}
+          </ReactMarkdown>
         </div>
       </div>
       <style jsx>{`

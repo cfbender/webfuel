@@ -6,7 +6,7 @@ const Editor = dynamic({
   loader: () => import("../components/Editor"),
   /* eslint-disable react/display-name */
   loading: () => <p>Loading ...</p>,
-  ssr: false
+  ssr: false,
 });
 
 type Props = {
@@ -26,7 +26,7 @@ const Challenge: React.FunctionComponent<Props> = ({
   finalTests,
   description,
   name,
-  title
+  title,
 }) => {
   const [text, setText] = useState(defaultCode);
   const [tests, updateTests] = useState(defaultTests);
@@ -45,11 +45,11 @@ const Challenge: React.FunctionComponent<Props> = ({
         userId: user.sub,
         challengeName: name,
         code: text,
-        tests: tests
+        tests: tests,
       };
       await fetch("/api/data/code", {
         method: "PUT",
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
     }
   };
@@ -59,7 +59,7 @@ const Challenge: React.FunctionComponent<Props> = ({
     const data = {
       name: "flatten",
       code: text,
-      tests: finalTests
+      tests: finalTests,
     };
     await call(
       "https://cuxuwv59w5.execute-api.us-east-1.amazonaws.com/dev/test",
@@ -72,7 +72,7 @@ const Challenge: React.FunctionComponent<Props> = ({
     const data = {
       name: "flatten",
       code: text,
-      tests: tests
+      tests: tests,
     };
     await call(
       "https://cuxuwv59w5.execute-api.us-east-1.amazonaws.com/dev/test",
@@ -86,16 +86,13 @@ const Challenge: React.FunctionComponent<Props> = ({
   ) => {
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
-    let {
-      result,
-      logs,
-      tests
-    }: { result: any; logs: any[]; tests: string } = await response.json();
+    const { result, logs, tests }: { result: any; logs: any[]; tests: string } =
+      await response.json();
     updateSubmitted(true);
     setTestsRun(tests);
-    let text = result.passed
+    const text = result.passed
       ? "All tests passed! 😎"
       : "At least some tests failed!";
     setPassText(text);
@@ -126,7 +123,7 @@ const Challenge: React.FunctionComponent<Props> = ({
       <div className="info">
         <h2>{title}</h2>
         <p className="description">
-          <ReactMarkdown children={description} />
+          <ReactMarkdown>{description}</ReactMarkdown>
         </p>
         {user ? null : (
           <code style={{ textAlign: "center" }}>
@@ -164,7 +161,7 @@ const Challenge: React.FunctionComponent<Props> = ({
             backgroundColor: "#000000",
             height: 0.5,
             borderColor: "#000000",
-            width: "85%"
+            width: "85%",
           }}
         />
         <span style={{ padding: "10px", fontFamily: "monospace" }}>
