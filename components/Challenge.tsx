@@ -126,7 +126,7 @@ const Challenge: React.FunctionComponent<Props> = ({
       <div className="info">
         <h2>{title}</h2>
         <p className="description">
-          <ReactMarkdown source={description} />
+          <ReactMarkdown children={description} />
         </p>
         {user ? null : (
           <code style={{ textAlign: "center" }}>
